@@ -31,7 +31,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
     public MaxHeap(T[] entries)
     {
         this(entries.length); // Call other constructor
-        lastIndex = entries.length;
+        checkIntegrity();
         // Assertion: integrityOK == true
         // Copy given array to data field
         for (int index = 0; index < entries.length; index++)
@@ -39,6 +39,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
         // Create heap
         for (int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
         reheap(rootIndex);
+
     } // end constructor
 
     public void add(T newEntry)
