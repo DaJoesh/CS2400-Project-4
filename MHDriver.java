@@ -7,7 +7,7 @@ public class MHDriver
     public static void main(String[] args) throws FileNotFoundException
     {
             int counter = 0;
-            File file = new File("C:\\Users\\dajoe\\Desktop\\CS2400-Project-4\\data_random.txt");
+            File file = new File("data_random.txt");
             if(file.exists())
             {
             Scanner fileR = new Scanner(file);
