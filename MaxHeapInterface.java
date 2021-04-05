@@ -7,7 +7,7 @@ public interface MaxHeapInterface<T extends Comparable<? super T>>
     /** Removes and returns the largest item in this heap.
      @return  Either the largest object in the heap or,
      if the heap is empty before the operation, null. */
-    public T removeMax();
+    public T remove();
 
     /** Retrieves the largest item in this heap.
      @return  Either the largest object in the heap or,

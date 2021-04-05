@@ -57,7 +57,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
         ensureCapacity();
     } // end add
 
-    public T removeMax()
+    public T remove()
     {
         checkIntegrity(); // Ensure initialization of data fields
         T root = null;
