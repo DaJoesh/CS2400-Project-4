@@ -6,36 +6,28 @@ public class MHDriver
 {
     public static void main(String[] args) throws FileNotFoundException
     {
+        try
+        {
             int counter = 0;
-            File file = new File("data_random.txt");
-            if(file.exists())
-            {
-            Scanner fileR = new Scanner(file);
-            Scanner fileZ = new Scanner(file);
+            Scanner fileR = new Scanner(new File("data_random.txt"));
             int n;
-            while(fileZ.hasNext())
-            {
-                counter++;
-            }
-            int[] list = new int[counter];
-            counter = 0;
-            while(fileR.hasNext())
+            int[] list = new int[100];
+            while(fileR.hasNextLine())
             {
                 n = fileR.nextInt();
                 list[counter] = n;
                 counter++;
             }
             fileR.close();
-            fileZ.close();
             for(int i = 0; i<list.length;i++)
             {
                 System.out.println(list[i]);
             }
-            }
-        else
+        }
+        catch(FileNotFoundException e)
         {
             System.out.println("An error occurred.");
-            System.exit(0);
+            e.printStackTrace();
         }
     }
 }
