@@ -40,6 +40,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
         for (int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
         reheap(rootIndex);
     } // end constructor
+    
     public void add(T newEntry)
     {
         checkIntegrity(); // Ensure initialization of data fields
@@ -126,4 +127,30 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
         } // end while
         heap[rootIndex] = orphan;
     } // end reheap
+
+    // Throws an exception if the client requests a capacity that is too large.
+    private void checkCapacity(int capacity)
+    {
+        if (capacity > MAX_CAPACITY)
+            throw new IllegalStateException("Attempt to create a MaxHeap whose " +
+                    "capacity exeeds allowed " +
+                    "maximum of " + MAX_CAPACITY);
+    } // end checkCapacity
+
+    // Throws an exception if this object is not initialized.
+    private void checkIntegrity()
+    {
+        if (!integrityOK)
+            throw new SecurityException("MaxHeap object is corrupt.");
+    } // end checkIntegrity
+
+    private void ensureCapacity()
+    {
+        if (lastIndex >= heap.length)
+        {
+            int newCapacity = 2 * (heap.length - 1);
+            checkCapacity(newCapacity);
+            heap = Arrays.copyOf(heap, newCapacity);
+        } // end if
+    } // end ensureCapacity
 }
