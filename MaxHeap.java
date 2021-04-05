@@ -40,7 +40,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
         for (int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
         reheap(rootIndex);
     } // end constructor
-    
+
     public void add(T newEntry)
     {
         checkIntegrity(); // Ensure initialization of data fields
@@ -59,7 +59,6 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 
     public T removeMax()
     {
-
         checkIntegrity(); // Ensure initialization of data fields
         T root = null;
         if (!isEmpty())
