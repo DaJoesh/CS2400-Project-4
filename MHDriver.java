@@ -2,20 +2,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
-import java.io.PrintWriter;
 public class MHDriver
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws FileNotFoundException
     {
-        try
-        {
             int counter = 0;
-            File file = new File("data_random.txt");
-            if (!file.exists())
+            File file = new File("C:\\Users\\dajoe\\Desktop\\CS2400-Project-4\\data_random.txt");
+            if(file.exists())
             {
-                System.out.println("ERROR: file does not exist");
-                System.exit(0);
-            }
             Scanner fileR = new Scanner(file);
             Scanner fileZ = new Scanner(file);
             int n;
@@ -33,11 +27,15 @@ public class MHDriver
             }
             fileR.close();
             fileZ.close();
-        }
-        catch (FileNotFoundException e)
+            for(int i = 0; i<list.length;i++)
+            {
+                System.out.println(list[i]);
+            }
+            }
+        else
         {
             System.out.println("An error occurred.");
-            e.printStackTrace();
+            System.exit(0);
         }
     }
 }
