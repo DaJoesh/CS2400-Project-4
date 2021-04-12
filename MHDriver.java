@@ -133,18 +133,13 @@ public class MHDriver
 
 
 
-    public static void randomSequentialMaxHeap(int[] n)
+    public static void SequentialMaxHeap(int[] n)
     {
         File file = new File("outputFile.txt");
+        int ten = 10;
         try
         {
-        PrintWriter outputFile  = new PrintWriter(file);
-        }
-        catch(FileNotFoundException e)
-        {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+        PrintWriter outputFile = new PrintWriter(file);
         MaxHeap heap = new MaxHeap();
         int counter = 0;
         for(int i = 0; i<n.length; i++)
@@ -153,9 +148,24 @@ public class MHDriver
             if(i<10)
             {
                 outputFile.write(String.valueOf(n[i]));
+                System.out.println("randomSequentialMaxHeap first 10: " + n[i]);
             }
             counter = counter + heap.addCounter(n[i]);
         }
             heap.toString();
+            outputFile.write(String.valueOf(counter));
+            while(ten>0)
+            {
+            ten--;
+            }
+            outputFile.write(String.valueOf(heap.remove()));
+            System.out.println(heap.remove());
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
+
 }
