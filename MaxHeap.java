@@ -7,7 +7,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
     private boolean integrityOK = false;
     private static final int DEFAULT_CAPACITY = 25;
     private static final int MAX_CAPACITY = 10000;
-    
+
     public MaxHeap()
     {
         this(DEFAULT_CAPACITY); // Call next constructor
@@ -57,6 +57,25 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
         heap[newIndex] = newEntry;
         lastIndex++;
         ensureCapacity();
+    } // end add
+    
+    public int addCounter(T newEntry)
+    {
+        checkIntegrity(); // Ensure initialization of data fields
+        int counter = 0;
+        int newIndex = lastIndex + 1;
+        int parentIndex = newIndex / 2;
+        while ( (parentIndex > 0) && newEntry.compareTo(heap[parentIndex]) > 0)
+        {
+            heap[newIndex] = heap[parentIndex];
+            newIndex = parentIndex;
+            parentIndex = newIndex / 2;
+            counter++;
+        } // end while
+        heap[newIndex] = newEntry;
+        lastIndex++;
+        ensureCapacity();
+        return counter;
     } // end add
 
     public T remove()

@@ -133,13 +133,19 @@ public class MHDriver
 
 
 
-
     public static void randomSequentialMaxHeap(int[] n)
     {
+        PrintWriter outputFile  = new PrintWriter(null);
         MaxHeap heap = new MaxHeap();
-       for(int i = 0; i<n.length; i++)
-       {
+        int counter = 0;
+        for(int i = 0; i<n.length; i++)
+        {
             heap.add(n[i]);
-       }
+            if(i<10)
+            {
+            }
+            counter = counter + heap.addCounter(n[i]);
+        }
+            heap.toString();
     }
 }
