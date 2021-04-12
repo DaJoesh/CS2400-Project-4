@@ -133,12 +133,7 @@ public class MHDriver
 
 
 
-<<<<<<< HEAD
-
-    public static void randomSequentialMaxHeap(int[] n)
-=======
     public static void SequentialMaxHeap(int[] n)
->>>>>>> 5f8d745431b65e550c7e9497f5b087e52021b1b2
     {
         MaxHeap heap = new MaxHeap();
        for(int i = 0; i<n.length; i++)
