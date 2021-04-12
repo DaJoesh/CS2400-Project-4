@@ -1,6 +1,7 @@
 //MaxHeap Driver By Joshua Jenkins and Russell Rickards
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.*;
 public class MHDriver
 {
@@ -8,9 +9,16 @@ public class MHDriver
     {
         System.out.println("Random Data: \n");
         readRandom();
-        System.out.println("\n");
-        System.out.println("Sorted Data: \n");
+        System.out.println("\nSorted Data: \n");
         readSorted();
+        int[] sortedArraySeq = new int[100];
+        int[] sortedArrayOpt = new int[100];
+        int[] randomArraySeq = new int[100];
+        int[] randomArrayOpt = new int[100];
+        sortedArraySeq = arraySorted();
+        sortedArrayOpt = arraySorted();
+        randomArraySeq = arrayRandom();
+        randomArrayOpt = arrayRandom();
     }
 
     public static void readRandom()
@@ -65,5 +73,73 @@ public class MHDriver
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+
+
+
+
+    public static int[] arrayRandom()
+    {
+        try
+        {
+            int counter = 0;
+            Scanner fileR = new Scanner(new File("data_random.txt"));
+            int n;
+            int[] list = new int[100];
+            while(fileR.hasNextLine())
+            {
+                n = fileR.nextInt();
+                list[counter] = n;
+                counter++;
+            }
+            fileR.close();
+            return list;
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static int[] arraySorted()
+    {
+        try
+        {
+            int counter = 0;
+            Scanner fileR = new Scanner(new File("data_sorted.txt"));
+            int n;
+            int[] list = new int[100];
+            while(fileR.hasNextLine())
+            {
+                n = fileR.nextInt();
+                list[counter] = n;
+                counter++;
+            }
+            fileR.close();
+            return list;
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+
+
+
+    public static void randomSequentialMaxHeap(int[] n)
+    {
+        MaxHeap heap = new MaxHeap();
+       for(int i = 0; i<n.length; i++)
+       {
+            heap.add(n[i]);
+       }
     }
 }
