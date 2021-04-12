@@ -6,6 +6,13 @@ public class MHDriver
 {
     public static void main(String[] args) throws FileNotFoundException
     {
+        readRandom();
+        System.out.println("\n");
+        readSorted();
+    }
+
+    public static void readRandom()
+    {
         try
         {
             int counter = 0;
@@ -21,7 +28,34 @@ public class MHDriver
             fileR.close();
             for(int i = 0; i<list.length;i++)
             {
-                System.out.println(list[i]);
+                System.out.print(list[i] + ", ");
+            }
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    public static void readSorted()
+    {
+        try
+        {
+            int counter = 0;
+            Scanner fileR = new Scanner(new File("data_sorted.txt"));
+            int n;
+            int[] list = new int[100];
+            while(fileR.hasNextLine())
+            {
+                n = fileR.nextInt();
+                list[counter] = n;
+                counter++;
+            }
+            fileR.close();
+            for(int i = 0; i<list.length;i++)
+            {
+                System.out.print(list[i] + ", ");
             }
         }
         catch(FileNotFoundException e)
