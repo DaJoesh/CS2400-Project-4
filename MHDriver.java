@@ -6,8 +6,10 @@ public class MHDriver
 {
     public static void main(String[] args) throws FileNotFoundException
     {
+        System.out.println("Random Data: \n");
         readRandom();
         System.out.println("\n");
+        System.out.println("Sorted Data: \n");
         readSorted();
     }
 
