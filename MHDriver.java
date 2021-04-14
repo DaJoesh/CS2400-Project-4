@@ -146,7 +146,7 @@ public class MHDriver
         try
         {
         PrintWriter outputFile = new PrintWriter(file);
-        MaxHeap<Integer> heap = new MaxHeap<Integer>();
+        MaxHeap<Integer> heap = new MaxHeap<Integer>(100);
         int counter = 0;
         int ten = 10;
             for(int i = 0; i<n.length; i++)
