@@ -155,7 +155,7 @@ public class MHDriver
                 heap.add(n[i]);
                 if(i<10)
                 {
-                    outputFile.write(String.valueOf(n[i]));
+                    outputFile.write(String.valueOf(n[i]) + ", ");
                     System.out.println("randomSequentialMaxHeap first 10: " + n[i]);
                 }
             }
