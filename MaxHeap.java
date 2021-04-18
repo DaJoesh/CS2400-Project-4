@@ -3,6 +3,7 @@
 import java.util.*;
 public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapInterface<T>
 {
+    private int x;
     private T[] heap;      // Array of heap entries; ignore heap[0]
     private int lastIndex; // Index of last entry and number of entries
     private boolean integrityOK = false;
@@ -147,9 +148,23 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
                 done = true;
         } // end while
         heap[rootIndex] = orphan;
+        x++;
     } // end reheap
 
-    public int reheapCounter(int rootIndex)
+    public int getCount()
+    {return x;}
+
+    public T[] getTen()
+    {
+        T[] n =  (T[]) new Integer[10]; 
+        for(int i = 0; i<n.length; i++)
+        {
+            n[i] = heap[i];
+        }
+        return n;
+    }
+
+    /*public int reheapCounter(int rootIndex)
     {
         boolean done = false;
         T orphan = heap[rootIndex];
@@ -176,7 +191,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
         } // end while
         heap[rootIndex] = orphan;
         return counter;
-    } // end reheapCounter
+    } // end reheapCounter*/
 
     // Throws an exception if the client requests a capacity that is too large.
     private void checkCapacity(int capacity)

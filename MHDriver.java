@@ -15,15 +15,15 @@ public class MHDriver
         readSorted();
         int[] sortedArraySeq = new int[100];
         int[] randomArraySeq = new int[100];
-        int[] sortedArrayOpt = new int[100];
-        int[] randomArrayOpt = new int[100];
+        Integer[] sortedArrayOpt = new Integer[100];
+        Integer[] randomArrayOpt = new Integer[100];
         sortedArraySeq = arraySorted();
         sortedSequentialMaxHeap(sortedArraySeq);
         randomArraySeq = arrayRandom();
         randomSequentialMaxHeap(randomArraySeq);
-        sortedArrayOpt = arraySorted();
+        sortedArrayOpt = arraySortedInteger();
         sortedOptimalMaxHeap(sortedArrayOpt);
-        randomArrayOpt = arrayRandom();
+        randomArrayOpt = arrayRandomInteger();
         randomOptimalMaxHeap(randomArrayOpt);
     }
 
@@ -106,6 +106,31 @@ public class MHDriver
         return null;
     }
 
+    public static Integer[] arrayRandomInteger()
+    {
+        try
+        {
+            int counter = 0;
+            Scanner fileR = new Scanner(new File("data_random.txt"));
+            Integer n;
+            Integer[] list = new Integer[100];
+            while(fileR.hasNextLine())
+            {
+                n = fileR.nextInt();
+                list[counter] = n;
+                counter++;
+            }
+            fileR.close();
+            return list;
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static int[] arraySorted()
     {
         try
@@ -114,6 +139,31 @@ public class MHDriver
             Scanner fileR = new Scanner(new File("data_sorted.txt"));
             int n;
             int[] list = new int[100];
+            while(fileR.hasNextLine())
+            {
+                n = fileR.nextInt();
+                list[counter] = n;
+                counter++;
+            }
+            fileR.close();
+            return list;
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Integer[] arraySortedInteger()
+    {
+        try
+        {
+            int counter = 0;
+            Scanner fileR = new Scanner(new File("data_sorted.txt"));
+            Integer n;
+            Integer[] list = new Integer[100];
             while(fileR.hasNextLine())
             {
                 n = fileR.nextInt();
@@ -218,23 +268,22 @@ public class MHDriver
     }
 //Optimal Method
 //random Optimal
-    public static void randomOptimalMaxHeap(int[] n)
+    public static void randomOptimalMaxHeap(Integer[] n)
     {
         File file = new File("outputFileOptimalRandom.txt");
         try
         {
         PrintWriter outputFile = new PrintWriter(file);
-        MaxHeap<Integer> heap = new MaxHeap<Integer>(100);
+        MaxHeap<Integer> heap = new MaxHeap<Integer>(n);
         int counter = 0;
         int ten = 10;
-            for(int i = 0; i<n.length; i++)
+            Integer[] x = new Integer[10]; 
+            x = heap.getTen();
+            for(int i = 0; i<x.length; i++)
             {
-                counter = counter + heap.reheapCounter(n[i]);
-                if(i<10)
-                {
-                    outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
-                }
+                outputFile.write("First 10 integers: " + String.valueOf(x[i]) + "\n");
             }
+            counter = heap.getCount();
             heap.toString();
             outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
             while(ten>0)
@@ -256,23 +305,22 @@ public class MHDriver
     } 
 
 //sorted Optimal   
-    public static void sortedOptimalMaxHeap(int[] n)
-{
+    public static void sortedOptimalMaxHeap(Integer[] n)
+    {
         File file = new File("outputFileOptimalSorted.txt");
-        try
+        try 
         {
         PrintWriter outputFile = new PrintWriter(file);
-        MaxHeap<Integer> heap = new MaxHeap<Integer>(100);
+        MaxHeap<Integer> heap = new MaxHeap<Integer>(n);
         int counter = 0;
         int ten = 10;
-            for(int i = 0; i<n.length; i++)
+            Integer[] x = new Integer[10]; 
+            x = heap.getTen();
+            for(int i = 0; i<x.length; i++)
             {
-                counter = counter + heap.reheapCounter(n[i]);
-                if(i<10)
-                {
-                    outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
-                }
+                outputFile.write("First 10 integers: " + String.valueOf(x[i]) + "\n");
             }
+            counter = heap.getCount();
             heap.toString();
             outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
             while(ten>0)
@@ -285,7 +333,7 @@ public class MHDriver
             outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
             }
             outputFile.close();
-        }
+            }
         catch(FileNotFoundException e)
         {
             System.out.println("An error occurred.");
