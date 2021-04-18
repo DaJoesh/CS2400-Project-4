@@ -10,6 +10,7 @@ public class MHDriver
     {
         System.out.println("Random Data: \n");
         readRandom();
+        System.out.println("\n");
         System.out.println("\nSorted Data: \n");
         readSorted();
         int[] sortedArraySeq = new int[100];
@@ -21,7 +22,9 @@ public class MHDriver
         randomArraySeq = arrayRandom();
         randomSequentialMaxHeap(randomArraySeq);
         sortedArrayOpt = arraySorted();
+        sortedOptimalMaxHeap(sortedArrayOpt);
         randomArrayOpt = arrayRandom();
+        randomOptimalMaxHeap(randomArrayOpt);
     }
 
     public static void readRandom()
