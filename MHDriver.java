@@ -128,10 +128,14 @@ public class MHDriver
         return null;
     }
 
+
+
 //   
 //Sequential Inserstion Methods
 //
 
+
+//***************************
 //Sorted Sequential Insertion
     public static void sortedSequentialMaxHeap(int[] n)
     {
@@ -170,7 +174,7 @@ public class MHDriver
             e.printStackTrace();
         }
     }
-
+//***************************
 //Random Sequential Insertion
     public static void randomSequentialMaxHeap(int[] n)
     {
