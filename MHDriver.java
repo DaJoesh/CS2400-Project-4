@@ -1,4 +1,5 @@
-//MaxHeap Driver By Joshua Jenkins and Russell Rickards
+//MaxHeap Driver 
+//By Joshua Jenkins and Russell Rickards
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -77,10 +78,6 @@ public class MHDriver
         }
     }
 
-
-
-
-
     public static int[] arrayRandom()
     {
         try
@@ -131,15 +128,9 @@ public class MHDriver
         return null;
     }
 
-
-
-
-
-
-
-
-
-
+//   
+//Sequential Inserstion Method
+//
     public static void SequentialMaxHeap(int[] n)
     {
         File file = new File("outputFile.txt");
@@ -151,16 +142,15 @@ public class MHDriver
         int ten = 10;
             for(int i = 0; i<n.length; i++)
             {
-                //counter = counter + heap.addCounter(n[i]);
-                heap.add(n[i]);
+                counter = counter + heap.addCounter(n[i]);
                 if(i<10)
                 {
-                    outputFile.write(String.valueOf(n[i]) + ", ");
+                    outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
                     System.out.println("randomSequentialMaxHeap first 10: " + n[i]);
                 }
             }
             heap.toString();
-            outputFile.write(String.valueOf(counter));
+            outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
             while(ten>0)
             {
                 heap.remove();
@@ -168,7 +158,7 @@ public class MHDriver
             }
             for(int j = 0; j<10;j++)
             {
-            outputFile.write(String.valueOf(heap.remove()));
+            outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
             }
             outputFile.close();
         }
@@ -178,7 +168,7 @@ public class MHDriver
             e.printStackTrace();
         }
     }
-
+//Optimal Method
 
 
 
