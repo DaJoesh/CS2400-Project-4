@@ -152,7 +152,6 @@ public class MHDriver
                 if(i<10)
                 {
                     outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
-                    System.out.println("randomSequentialMaxHeap first 10: " + n[i]);
                 }
             }
             heap.toString();
@@ -193,7 +192,6 @@ public class MHDriver
                 if(i<10)
                 {
                     outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
-                    System.out.println("randomSequentialMaxHeap first 10: " + n[i]);
                 }
             }
             heap.toString();
