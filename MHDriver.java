@@ -13,14 +13,14 @@ public class MHDriver
         System.out.println("\nSorted Data: \n");
         readSorted();
         int[] sortedArraySeq = new int[100];
-        int[] sortedArrayOpt = new int[100];
         int[] randomArraySeq = new int[100];
+        int[] sortedArrayOpt = new int[100];
         int[] randomArrayOpt = new int[100];
         sortedArraySeq = arraySorted();
-        SequentialMaxHeap(sortedArraySeq);
-        sortedArrayOpt = arraySorted();
+        sortedSequentialMaxHeap(sortedArraySeq);
         randomArraySeq = arrayRandom();
-        SequentialMaxHeap(randomArraySeq);
+        randomSequentialMaxHeap(randomArraySeq);
+        sortedArrayOpt = arraySorted();
         randomArrayOpt = arrayRandom();
     }
 
@@ -129,11 +129,13 @@ public class MHDriver
     }
 
 //   
-//Sequential Inserstion Method
+//Sequential Inserstion Methods
 //
-    public static void SequentialMaxHeap(int[] n)
+
+//Sorted Sequential Insertion
+    public static void sortedSequentialMaxHeap(int[] n)
     {
-        File file = new File("outputFile.txt");
+        File file = new File("outputFileSequentialSorted.txt");
         try
         {
         PrintWriter outputFile = new PrintWriter(file);
@@ -168,53 +170,44 @@ public class MHDriver
             e.printStackTrace();
         }
     }
-//Optimal Method
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   /* public static void randomOptimalMaxHeap(int[] n)
+//Random Sequential Insertion
+    public static void randomSequentialMaxHeap(int[] n)
     {
-        File file = new File("outputFile.txt");
-        int ten = 10;
+        File file = new File("outputFileSequentialRandom.txt");
         try
         {
-            PrintWriter outputfile = new PrintWriter(file);
-            MaxHeap heap = new MaxHeap();    
-            int counter = 0;
+        PrintWriter outputFile = new PrintWriter(file);
+        MaxHeap<Integer> heap = new MaxHeap<Integer>(100);
+        int counter = 0;
+        int ten = 10;
             for(int i = 0; i<n.length; i++)
             {
-                public MaxHeap(T[] entries)
+                counter = counter + heap.addCounter(n[i]);
+                if(i<10)
                 {
-                    this(entries.length);
-                    assert initialized = true;
-                    for(int index = 0; index < entries.length; index++)
-                        heap[index + 1] = entries[index];
-        
-                    for (int rootIndex = lastIndex / 2; root > 0; rootIndex--)
-                        reheap(rootIndex);
+                    outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
+                    System.out.println("randomSequentialMaxHeap first 10: " + n[i]);
                 }
-            } 
+            }
+            heap.toString();
+            outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
+            while(ten>0)
+            {
+                heap.remove();
+                ten--;
+            }
+            for(int j = 0; j<10;j++)
+            {
+            outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
+            }
+            outputFile.close();
         }
         catch(FileNotFoundException e)
         {
-            System.out.println("An error occurred");
+            System.out.println("An error occurred.");
             e.printStackTrace();
         }
     }
-    */
+//Optimal insetion Method
 }
