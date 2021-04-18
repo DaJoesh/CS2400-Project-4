@@ -1,0 +1,21 @@
+First 10 integers: 1
+First 10 integers: 2
+First 10 integers: 3
+First 10 integers: 4
+First 10 integers: 5
+First 10 integers: 6
+First 10 integers: 7
+First 10 integers: 8
+First 10 integers: 9
+First 10 integers: 10
+Swaps: 0
+After removal: null
+After removal: null
+After removal: null
+After removal: null
+After removal: null
+After removal: null
+After removal: null
+After removal: null
+After removal: null
+After removal: null

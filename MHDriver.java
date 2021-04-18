@@ -11,7 +11,7 @@ public class MHDriver
         System.out.println("Random Data: \n");
         readRandom();
         System.out.println("\n");
-        System.out.println("\nSorted Data: \n");
+        System.out.println("Sorted Data: \n");
         readSorted();
         int[] sortedArraySeq = new int[100];
         int[] randomArraySeq = new int[100];
