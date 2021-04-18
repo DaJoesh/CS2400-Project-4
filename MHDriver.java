@@ -174,8 +174,10 @@ public class MHDriver
             e.printStackTrace();
         }
     }
+
 //***************************
 //Random Sequential Insertion
+
     public static void randomSequentialMaxHeap(int[] n)
     {
         File file = new File("outputFileSequentialRandom.txt");
