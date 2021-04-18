@@ -137,22 +137,28 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
                     heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
             {
                 largerChildIndex = rightChildIndex;
+                x++;
+                System.out.println("value of x in reheap" + x);
             } // end if
             if (orphan.compareTo(heap[largerChildIndex]) < 0)
             {
                 heap[rootIndex] = heap[largerChildIndex];
                 rootIndex = largerChildIndex;
                 leftChildIndex = 2 * rootIndex;
+                x++;
+                System.out.println("value of x in reheap" + x);
             }
             else
                 done = true;
         } // end while
         heap[rootIndex] = orphan;
-        x++;
     } // end reheap
 
     public int getCount()
-    {return x;}
+    {
+        System.out.println("value of x in general after reheap is called" + x);
+        return x;
+    }
 
     public T[] getTen()
     {
@@ -160,7 +166,7 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
         T[] n =  (T[]) new Integer[10]; 
         for(int i = 0; i<n.length; i++)
         {
-            n[i] = heap[i];
+            n[i] = heap[i+1];
         }
         return n;
     }
