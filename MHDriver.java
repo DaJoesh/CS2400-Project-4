@@ -213,5 +213,80 @@ public class MHDriver
             e.printStackTrace();
         }
     }
-//Optimal insetion Method
+//Optimal Method
+//random Optimal
+    public static void randomOptimalMaxHeap(int[] n)
+    {
+        File file = new File("outputFileOptimalRandom.txt");
+        try
+        {
+        PrintWriter outputFile = new PrintWriter(file);
+        MaxHeap<Integer> heap = new MaxHeap<Integer>(100);
+        int counter = 0;
+        int ten = 10;
+            for(int i = 0; i<n.length; i++)
+            {
+                counter = counter + heap.reheapCounter(n[i]);
+                if(i<10)
+                {
+                    outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
+                }
+            }
+            heap.toString();
+            outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
+            while(ten>0)
+            {
+                heap.remove();
+                ten--;
+            }
+            for(int j = 0; j<10;j++)
+            {
+            outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
+            }
+            outputFile.close();
+            }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    } 
+
+//sorted Optimal   
+    public static void sortedOptimalMaxHeap(int[] n)
+{
+        File file = new File("outputFileOptimalSorted.txt");
+        try
+        {
+        PrintWriter outputFile = new PrintWriter(file);
+        MaxHeap<Integer> heap = new MaxHeap<Integer>(100);
+        int counter = 0;
+        int ten = 10;
+            for(int i = 0; i<n.length; i++)
+            {
+                counter = counter + heap.reheapCounter(n[i]);
+                if(i<10)
+                {
+                    outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
+                }
+            }
+            heap.toString();
+            outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
+            while(ten>0)
+            {
+                heap.remove();
+                ten--;
+            }
+            for(int j = 0; j<10;j++)
+            {
+            outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
+            }
+            outputFile.close();
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    } 
 }
