@@ -22,7 +22,6 @@ public class MHDriver
         randomSequentialMaxHeap(randomArraySeq);
         sortedArrayOpt = arraySorted();
         randomArrayOpt = arrayRandom();
-        
     }
 
     public static void readRandom()
