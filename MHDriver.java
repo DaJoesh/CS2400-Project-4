@@ -226,7 +226,7 @@ public class MHDriver
         int ten = 10;
             for(int i = 0; i<n.length; i++)
             {
-                counter = counter + heap.addCounter(n[i]);
+                counter = counter + heap.reheapCounter(n[i]);
                 if(i<10)
                 {
                     outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
@@ -264,7 +264,7 @@ public class MHDriver
         int ten = 10;
             for(int i = 0; i<n.length; i++)
             {
-                counter = counter + heap.addCounter(n[i]);
+                counter = counter + heap.reheapCounter(n[i]);
                 if(i<10)
                 {
                     outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
