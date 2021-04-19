@@ -38,7 +38,10 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
         // Assertion: integrityOK == true
         // Copy given array to data field
         for (int index = 0; index < entries.length; index++)
+        {
             heap[index + 1] = entries[index];
+            lastIndex++;
+        }
         // Create heap
         for (int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
         reheap(rootIndex);

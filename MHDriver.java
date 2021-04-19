@@ -271,13 +271,13 @@ public class MHDriver
     public static void randomOptimalMaxHeap(Integer[] n)
     {
         File file = new File("outputFileOptimalRandom.txt");
-        try
-        {
-        PrintWriter outputFile = new PrintWriter(file);
         MaxHeap<Integer> heap = new MaxHeap<Integer>(n);
         int counter = 0;
         int ten = 10;
-            Integer[] x = new Integer[10]; 
+        Integer[] x = new Integer[10]; 
+        try
+        {
+            PrintWriter outputFile = new PrintWriter(file);
             x = heap.getTen();
             for(int i = 0; i<x.length; i++)
             {
@@ -288,15 +288,15 @@ public class MHDriver
             outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
             while(ten>0)
             {
-                heap.remove();
-                ten--;
+                    heap.remove();
+                    ten--;
             }
             for(int j = 0; j<10;j++)
             {
-            outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
+                outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
             }
             outputFile.close();
-            }
+        }
         catch(FileNotFoundException e)
         {
             System.out.println("An error occurred.");
