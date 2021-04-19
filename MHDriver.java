@@ -266,8 +266,51 @@ public class MHDriver
             e.printStackTrace();
         }
     }
-//Optimal Method
-//random Optimal
+
+//
+//Optimal Methods
+//
+
+//***************************
+//Sorted Optimal Insertion   
+public static void sortedOptimalMaxHeap(Integer[] n)
+{
+    File file = new File("outputFileOptimalSorted.txt");
+    try 
+    {
+    PrintWriter outputFile = new PrintWriter(file);
+    MaxHeap<Integer> heap = new MaxHeap<Integer>(n);
+    int counter = 0;
+    int ten = 10;
+        Integer[] x = new Integer[10]; 
+        x = heap.getTen();
+        for(int i = 0; i<x.length; i++)
+        {
+            outputFile.write("First 10 integers: " + String.valueOf(x[i]) + "\n");
+        }
+        counter = heap.getCount();
+        heap.toString();
+        outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
+        while(ten>0)
+        {
+            heap.remove();
+            ten--;
+        }
+        for(int j = 0; j<10;j++)
+        {
+        outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
+        }
+        outputFile.close();
+        }
+    catch(FileNotFoundException e)
+    {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+    }
+} 
+
+//***************************
+//Random Optimal Insertion
     public static void randomOptimalMaxHeap(Integer[] n)
     {
         File file = new File("outputFileOptimalRandom.txt");
@@ -297,43 +340,6 @@ public class MHDriver
             }
             outputFile.close();
         }
-        catch(FileNotFoundException e)
-        {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-    } 
-
-//sorted Optimal   
-    public static void sortedOptimalMaxHeap(Integer[] n)
-    {
-        File file = new File("outputFileOptimalSorted.txt");
-        try 
-        {
-        PrintWriter outputFile = new PrintWriter(file);
-        MaxHeap<Integer> heap = new MaxHeap<Integer>(n);
-        int counter = 0;
-        int ten = 10;
-            Integer[] x = new Integer[10]; 
-            x = heap.getTen();
-            for(int i = 0; i<x.length; i++)
-            {
-                outputFile.write("First 10 integers: " + String.valueOf(x[i]) + "\n");
-            }
-            counter = heap.getCount();
-            heap.toString();
-            outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
-            while(ten>0)
-            {
-                heap.remove();
-                ten--;
-            }
-            for(int j = 0; j<10;j++)
-            {
-            outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
-            }
-            outputFile.close();
-            }
         catch(FileNotFoundException e)
         {
             System.out.println("An error occurred.");

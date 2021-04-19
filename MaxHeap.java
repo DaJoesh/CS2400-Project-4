@@ -1,5 +1,5 @@
 //MaxHeap 
-//By Joshua Jenkins and Russell Rickards
+//Joshua Jenkins and Russell Rickards
 import java.util.*;
 public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapInterface<T>
 {
