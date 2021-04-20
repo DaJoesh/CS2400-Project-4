@@ -3,7 +3,7 @@
 import java.util.*;
 public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapInterface<T>
 {
-    private int x;
+    private int classCounter;
     private T[] heap;      // Array of heap entries; ignore heap[0]
     private int lastIndex; // Index of last entry and number of entries
     private boolean integrityOK = false;
@@ -140,16 +140,13 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
                     heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
             {
                 largerChildIndex = rightChildIndex;
-                x++;
-                System.out.println("value of x in reheap" + x);
             } // end if
             if (orphan.compareTo(heap[largerChildIndex]) < 0)
             {
                 heap[rootIndex] = heap[largerChildIndex];
                 rootIndex = largerChildIndex;
                 leftChildIndex = 2 * rootIndex;
-                x++;
-                System.out.println("value of x in reheap" + x);
+                classCounter++;
             }
             else
                 done = true;
@@ -159,8 +156,27 @@ public final class MaxHeap<T extends Comparable<? super T>> implements MaxHeapIn
 
     public int getCount()
     {
-        System.out.println("value of x in general after reheap is called" + x);
-        return x;
+        return classCounter;
+    }
+
+    public Integer[] toArrayFromTo(int beginning, int end)
+    {
+        Integer[] newArray = new Integer[end];
+        for(int i = beginning; i<end ; i++)
+        {
+            newArray[i] = (Integer) heap[i];
+        }
+        return newArray;
+    }
+
+    public Integer[] toArray()
+    {
+        Integer[] newArray = new Integer[heap.length];
+        for(int i = 0; i<heap.length ; i++)
+        {
+            newArray[i] = (Integer) heap[i];
+        }
+        return newArray;
     }
 
     public T[] getTen()

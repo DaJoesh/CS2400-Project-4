@@ -1,0 +1,21 @@
+First 10 integers: 100
+First 10 integers: 94
+First 10 integers: 99
+First 10 integers: 77
+First 10 integers: 93
+First 10 integers: 98
+First 10 integers: 61
+First 10 integers: 68
+First 10 integers: 76
+First 10 integers: 84
+Swaps: 480
+After removal: 90
+After removal: 89
+After removal: 62
+After removal: 77
+After removal: 88
+After removal: 53
+After removal: 61
+After removal: 68
+After removal: 76
+After removal: 84

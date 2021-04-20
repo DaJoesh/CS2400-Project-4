@@ -193,30 +193,33 @@ public class MHDriver
     public static void sortedSequentialMaxHeap(int[] n)
     {
         File file = new File("outputFileSequentialSorted.txt");
+        Integer[] tempArray = new Integer[100];
         try
         {
         PrintWriter outputFile = new PrintWriter(file);
         MaxHeap<Integer> heap = new MaxHeap<Integer>(100);
         int counter = 0;
-        int ten = 10;
+        int numberToBePrinted = 10;
             for(int i = 0; i<n.length; i++)
             {
                 counter = counter + heap.addCounter(n[i]);
-                if(i<10)
-                {
-                    outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
-                }
+            }
+            tempArray = heap.toArray();
+            for(int k = 1; k<11 ; k++)
+            {
+                outputFile.write("First 10 integers: " + String.valueOf(tempArray[k]) + "\n");
             }
             heap.toString();
             outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
-            while(ten>0)
+            while(numberToBePrinted>0)
             {
                 heap.remove();
-                ten--;
+                numberToBePrinted--;
             }
-            for(int j = 0; j<10;j++)
+            MaxHeap<Integer> removalHeap = heap;
+            for (int j = 1; j < 11;j++)
             {
-            outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
+                outputFile.write("After removal: " + String.valueOf(removalHeap.toArray()[j]) + "\n");
             }
             outputFile.close();
         }
@@ -232,38 +235,41 @@ public class MHDriver
 
     public static void randomSequentialMaxHeap(int[] n)
     {
-        File file = new File("outputFileSequentialRandom.txt");
-        try
+    File file = new File("outputFileSequentialRandom.txt");
+    Integer[] tempArray = new Integer[100];
+    try
+    {
+    PrintWriter outputFile = new PrintWriter(file);
+    MaxHeap<Integer> heap = new MaxHeap<Integer>(100);
+    int counter = 0;
+    int numberToBePrinted = 10;
+        for(int i = 0; i<n.length; i++)
         {
-        PrintWriter outputFile = new PrintWriter(file);
-        MaxHeap<Integer> heap = new MaxHeap<Integer>(100);
-        int counter = 0;
-        int ten = 10;
-            for(int i = 0; i<n.length; i++)
-            {
-                counter = counter + heap.addCounter(n[i]);
-                if(i<10)
-                {
-                    outputFile.write("First 10 integers: " + String.valueOf(n[i]) + "\n");
-                }
-            }
-            heap.toString();
-            outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
-            while(ten>0)
-            {
-                heap.remove();
-                ten--;
-            }
-            for(int j = 0; j<10;j++)
-            {
-            outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
-            }
-            outputFile.close();
+            counter = counter + heap.addCounter(n[i]);
         }
-        catch(FileNotFoundException e)
+        tempArray = heap.toArray();
+        for(int k = 1; k<11 ; k++)
         {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            outputFile.write("First 10 integers: " + String.valueOf(tempArray[k]) + "\n");
+        }
+        heap.toString();
+        outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
+        while(numberToBePrinted>0)
+        {
+            heap.remove();
+            numberToBePrinted--;
+        }
+        MaxHeap<Integer> removalHeap = heap;
+        for (int j = 1; j < 11;j++)
+        {
+            outputFile.write("After removal: " + String.valueOf(removalHeap.toArray()[j]) + "\n");
+        }
+        outputFile.close();
+    }
+    catch(FileNotFoundException e)
+    {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
         }
     }
 
@@ -281,7 +287,7 @@ public static void sortedOptimalMaxHeap(Integer[] n)
     PrintWriter outputFile = new PrintWriter(file);
     MaxHeap<Integer> heap = new MaxHeap<Integer>(n);
     int counter = 0;
-    int ten = 10;
+    int numberToBePrinted = 10;
         Integer[] x = new Integer[10]; 
         x = heap.getTen();
         for(int i = 0; i<x.length; i++)
@@ -291,14 +297,15 @@ public static void sortedOptimalMaxHeap(Integer[] n)
         counter = heap.getCount();
         heap.toString();
         outputFile.write("Swaps: " + String.valueOf(counter) + "\n");
-        while(ten>0)
+        while(numberToBePrinted>0)
         {
             heap.remove();
-            ten--;
+            numberToBePrinted--;
         }
-        for(int j = 0; j<10;j++)
+        MaxHeap<Integer> removalHeap = heap;
+        for(int j = 1; j<11;j++)
         {
-        outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
+        outputFile.write("After removal: " + String.valueOf(removalHeap.toArray()[j]) + "\n");
         }
         outputFile.close();
         }
@@ -334,9 +341,10 @@ public static void sortedOptimalMaxHeap(Integer[] n)
                     heap.remove();
                     ten--;
             }
-            for(int j = 0; j<10;j++)
+            MaxHeap<Integer> removalHeap = heap;
+            for(int j = 1; j<11;j++)
             {
-                outputFile.write("After removal: " + String.valueOf(heap.remove()) + "\n");
+            outputFile.write("After removal: " + String.valueOf(removalHeap.toArray()[j]) + "\n");
             }
             outputFile.close();
         }

@@ -1,0 +1,21 @@
+First 10 integers: 997
+First 10 integers: 991
+First 10 integers: 982
+First 10 integers: 960
+First 10 integers: 982
+First 10 integers: 913
+First 10 integers: 972
+First 10 integers: 931
+First 10 integers: 874
+First 10 integers: 953
+Swaps: 114
+After removal: 924
+After removal: 904
+After removal: 913
+After removal: 874
+After removal: 882
+After removal: 843
+After removal: 880
+After removal: 814
+After removal: 872
+After removal: 865
